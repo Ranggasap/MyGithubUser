@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/usersFragment">
+
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.example.mygithubuser.ui.UsersFragment"
+        android:label="UsersFragment"
+        tools:layout="@layout/fragment_users">
+        <action
+            android:id="@+id/action_usersFragment_to_detailUserFragment"
+            app:destination="@id/detailUserFragment" />
+        <action
+            android:id="@+id/action_usersFragment_to_themeModeFragment"
+            app:destination="@id/themeModeFragment" />
+        <action
+            android:id="@+id/action_usersFragment_to_favoriteUsersFragment"
+            app:destination="@id/favoriteUsersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailUserFragment"
+        android:name="com.example.mygithubuser.ui.DetailUserFragment"
+        android:label="fragment_detail_user"
+        tools:layout="@layout/fragment_detail_user" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="default username" />
+        <argument
+            android:name="avatarUrl"
+            app:argType="string"
+            android:defaultValue="https://avatars.githubusercontent.com/u/78600022?v=4" />
+    </fragment>
+    <fragment
+        android:id="@+id/themeModeFragment"
+        android:name="com.example.mygithubuser.ui.ThemeModeFragment"
+        android:label="fragment_theme_mode"
+        tools:layout="@layout/fragment_theme_mode" />
+    <fragment
+        android:id="@+id/favoriteUsersFragment"
+        android:name="com.example.mygithubuser.ui.FavoriteUsersFragment"
+        android:label="fragment_favorite_users"
+        tools:layout="@layout/fragment_favorite_users" >
+        <action
+            android:id="@+id/action_favoriteUsersFragment_to_detailUserFragment"
+            app:destination="@id/detailUserFragment" />
+    </fragment>
+
+</navigation>
